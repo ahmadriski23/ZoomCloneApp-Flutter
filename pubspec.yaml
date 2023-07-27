@@ -39,7 +39,7 @@ dependencies:
   firebase_auth: ^4.7.1
   cloud_firestore: ^4.8.3
   google_sign_in: ^6.1.4
-  jitsi_meet: ^4.0.0
+  omni_jitsi_meet: ^1.0.14
 
 
 dev_dependencies:
