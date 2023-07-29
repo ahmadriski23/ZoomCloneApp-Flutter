@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zoom_clone_app/resources/auth_methods.dart';
+import 'package:zoom_clone_app/resources/jitsi_meet_methods.dart';
 import 'package:zoom_clone_app/utils/colors.dart';
 import 'package:zoom_clone_app/widgets/meeting_options.dart';
 
@@ -13,8 +14,9 @@ class VideoCallScreen extends StatefulWidget {
 class _VideoCallScreenState extends State<VideoCallScreen> {
   final AuthMethods _authMethods = AuthMethods();
   late TextEditingController meetingIdController;
-  late TextEditingController nameController;
 
+  late TextEditingController nameController;
+  final JitsiMeetMethods _jitsiMeetMethods = JitsiMeetMethods();
   bool isAudioMuted = true;
   bool isVideoMuted = true;
 
@@ -25,7 +27,22 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
     super.initState();
   }
 
-  _joinMeeting() {}
+  @override
+  void dispose() {
+    super.dispose();
+    meetingIdController.dispose();
+    nameController.dispose();
+  }
+
+  _joinMeeting() {
+    _jitsiMeetMethods.createMeeting(
+      roomName: meetingIdController.text,
+      isAudioMuted: isAudioMuted,
+      isVideoMuted: isVideoMuted,
+      username: nameController.text,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

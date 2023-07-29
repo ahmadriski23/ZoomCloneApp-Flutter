@@ -1,3 +1,4 @@
+import 'package:zoom_clone_app/state_util.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:zoom_clone_app/resources/auth_methods.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Zoom Clone',
+      navigatorKey: Get.navigatorKey,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
         useMaterial3: true,
