@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:zoom_clone_app/state_util.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Zoom Clone',
+      title: 'Dismee',
       navigatorKey: Get.navigatorKey,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
@@ -41,9 +42,21 @@ class MyApp extends StatelessWidget {
             );
           }
           if (snapshot.hasData) {
-            return HomeScreen();
+            return AnimatedSplashScreen(
+              splashIconSize: 500,
+              splash: 'assets/images/splash.png',
+              nextScreen: HomeScreen(),
+              splashTransition: SplashTransition.fadeTransition,
+              backgroundColor: backgroundColor,
+            );
           }
-          return LoginScreen();
+          return AnimatedSplashScreen(
+            splashIconSize: 500,
+            splash: 'assets/images/splash.png',
+            nextScreen: LoginScreen(),
+            splashTransition: SplashTransition.fadeTransition,
+            backgroundColor: backgroundColor,
+          );
         },
       ),
     );

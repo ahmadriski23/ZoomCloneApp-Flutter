@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:zoom_clone_app/resources/auth_methods.dart';
 import 'package:zoom_clone_app/resources/jitsi_meet_methods.dart';
@@ -49,10 +50,13 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: backgroundColor,
-        title: Text(
-          'Join a Meeting',
-          style: TextStyle(
-            fontSize: 18,
+        title: FadeIn(
+          duration: Duration(milliseconds: 350),
+          child: Text(
+            'Join a Meeting',
+            style: TextStyle(
+              fontSize: 18,
+            ),
           ),
         ),
         centerTitle: true,
@@ -61,42 +65,48 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
         children: <Widget>[
           SizedBox(
             height: 60,
-            child: TextField(
-              controller: meetingIdController,
-              maxLines: 1,
-              textAlign: TextAlign.center,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                  fillColor: secondaryBackgroundColor,
-                  filled: true,
-                  border: InputBorder.none,
-                  hintText: 'Room ID',
-                  contentPadding: EdgeInsets.fromLTRB(
-                    16,
-                    8,
-                    0,
-                    0,
-                  )),
+            child: FlipInX(
+              duration: Duration(milliseconds: 850),
+              child: TextField(
+                controller: meetingIdController,
+                maxLines: 1,
+                textAlign: TextAlign.center,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    fillColor: secondaryBackgroundColor,
+                    filled: true,
+                    border: InputBorder.none,
+                    hintText: 'Room ID',
+                    contentPadding: EdgeInsets.fromLTRB(
+                      16,
+                      8,
+                      0,
+                      0,
+                    )),
+              ),
             ),
           ),
           SizedBox(
             height: 60,
-            child: TextField(
-              controller: nameController,
-              maxLines: 1,
-              textAlign: TextAlign.center,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                  fillColor: secondaryBackgroundColor,
-                  filled: true,
-                  border: InputBorder.none,
-                  hintText: 'Name',
-                  contentPadding: EdgeInsets.fromLTRB(
-                    16,
-                    8,
-                    0,
-                    0,
-                  )),
+            child: FlipInX(
+              duration: Duration(milliseconds: 1350),
+              child: TextField(
+                controller: nameController,
+                maxLines: 1,
+                textAlign: TextAlign.center,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                    fillColor: secondaryBackgroundColor,
+                    filled: true,
+                    border: InputBorder.none,
+                    hintText: 'Name',
+                    contentPadding: EdgeInsets.fromLTRB(
+                      16,
+                      8,
+                      0,
+                      0,
+                    )),
+              ),
             ),
           ),
           SizedBox(
@@ -106,10 +116,13 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
             onTap: _joinMeeting,
             child: Padding(
               padding: EdgeInsets.all(8),
-              child: Text(
-                'Join',
-                style: TextStyle(
-                  fontSize: 16,
+              child: FlipInX(
+                duration: Duration(milliseconds: 1750),
+                child: Text(
+                  'Join',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ),
@@ -117,15 +130,21 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
           SizedBox(
             height: 20,
           ),
-          MeetingOption(
-            text: 'Mute Audio',
-            isMute: isAudioMuted,
-            onChange: onAudioMuted,
+          FlipInX(
+            duration: Duration(milliseconds: 2350),
+            child: MeetingOption(
+              text: 'Mute Audio',
+              isMute: isAudioMuted,
+              onChange: onAudioMuted,
+            ),
           ),
-          MeetingOption(
-            text: 'Turn off My Video',
-            isMute: isVideoMuted,
-            onChange: onVideoMuted,
+          FlipInX(
+            duration: Duration(milliseconds: 2350),
+            child: MeetingOption(
+              text: 'Turn off My Video',
+              isMute: isVideoMuted,
+              onChange: onVideoMuted,
+            ),
           )
         ],
       ),

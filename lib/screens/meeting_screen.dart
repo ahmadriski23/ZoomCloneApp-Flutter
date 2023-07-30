@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:zoom_clone_app/resources/jitsi_meet_methods.dart';
 
@@ -30,35 +31,50 @@ class MeetingScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            HomeMeetingButton(
-              onPressed: createNewMeeting,
-              icon: Icons.videocam,
-              text: 'New Meeting',
+            FadeInLeft(
+              delay: Duration(milliseconds: 200),
+              child: HomeMeetingButton(
+                onPressed: createNewMeeting,
+                icon: Icons.videocam,
+                text: 'New Meeting',
+              ),
             ),
-            HomeMeetingButton(
-              onPressed: () => joinMeeting(context),
-              icon: Icons.add_box_rounded,
-              text: 'Join Meeting',
+            ZoomIn(
+              delay: Duration(milliseconds: 550),
+              child: HomeMeetingButton(
+                onPressed: () => joinMeeting(context),
+                icon: Icons.add_box_rounded,
+                text: 'Join Meeting',
+              ),
             ),
-            HomeMeetingButton(
-              onPressed: () {},
-              icon: Icons.calendar_today,
-              text: 'Schedule',
+            FlipInX(
+              delay: Duration(milliseconds: 850),
+              child: HomeMeetingButton(
+                onPressed: () {},
+                icon: Icons.calendar_today,
+                text: 'Schedule',
+              ),
             ),
-            HomeMeetingButton(
-              onPressed: () {},
-              icon: Icons.arrow_upward_rounded,
-              text: 'Share Screen',
+            FadeInRight(
+              delay: Duration(milliseconds: 1150),
+              child: HomeMeetingButton(
+                onPressed: () {},
+                icon: Icons.arrow_upward_rounded,
+                text: 'Share Screen',
+              ),
             ),
           ],
         ),
         Expanded(
           child: Center(
-            child: Text(
-              'Create/Join Meetings with just a click!',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
+            child: FlipInY(
+              delay: Duration(milliseconds: 1800),
+              child: Text(
+                'Create/Join Meetings with just a click!',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
             ),
           ),

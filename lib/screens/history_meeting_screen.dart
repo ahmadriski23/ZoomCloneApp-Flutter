@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:zoom_clone_app/resources/firestore_methods.dart';
@@ -19,11 +20,17 @@ class HistoryMeetingScreen extends StatelessWidget {
         return ListView.builder(
             itemCount: (snapshot.data! as dynamic).docs.length,
             itemBuilder: (context, index) => ListTile(
-                title: Text(
-                  'Room Name : ${(snapshot.data! as dynamic).docs[index]['meetingName']}',
+                title: FlipInY(
+                  delay: Duration(milliseconds: 500),
+                  child: Text(
+                    'Room Name : ${(snapshot.data! as dynamic).docs[index]['meetingName']}',
+                  ),
                 ),
-                subtitle: Text(
-                    'Joined on ${DateFormat.yMMMMd().format((snapshot.data! as dynamic).docs[index]['createdAt'].toDate())}')));
+                subtitle: ZoomIn(
+                  delay: Duration(milliseconds: 800),
+                  child: Text(
+                      'Joined on ${DateFormat.yMMMMd().format((snapshot.data! as dynamic).docs[index]['createdAt'].toDate())}'),
+                )));
       }),
     );
   }

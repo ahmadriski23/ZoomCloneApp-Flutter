@@ -1,10 +1,11 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 import 'package:zoom_clone_app/core.dart';
 import 'package:zoom_clone_app/screens/history_meeting_screen.dart';
+import 'package:zoom_clone_app/screens/setting_screen.dart';
 import 'package:zoom_clone_app/utils/colors.dart';
 
-import '../resources/auth_methods.dart';
 import 'meeting_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     MeetingScreen(),
     HistoryMeetingScreen(),
     Center(child: Text('Contact')),
-    CustomButton(text: 'Log Out', onPressed: () => AuthMethods().signOut()),
+    SettingScreen(),
   ];
 
   @override
@@ -40,26 +41,39 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       body: pages[_page],
-      bottomNavigationBar: WaterDropNavBar(
-        backgroundColor: footerColor,
-        inactiveIconColor: Colors.grey,
-        onItemSelected: onPageChanged,
-        selectedIndex: _page,
-        barItems: [
-          BarItem(
-            filledIcon: Icons.comment,
-            outlinedIcon: Icons.comment_bank_outlined,
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.vertical(
+            top: Radius.circular(30),
+            bottom: Radius.circular(30),
           ),
-          BarItem(
-              filledIcon: Icons.lock_clock,
-              outlinedIcon: Icons.lock_clock_outlined),
-          BarItem(
-              filledIcon: Icons.person_2,
-              outlinedIcon: Icons.person_2_outlined),
-          BarItem(
-              filledIcon: Icons.settings,
-              outlinedIcon: Icons.settings_outlined),
-        ],
+          child: ZoomIn(
+            delay: Duration(seconds: 2),
+            child: WaterDropNavBar(
+              backgroundColor: footerColor,
+              inactiveIconColor: Colors.grey,
+              onItemSelected: onPageChanged,
+              selectedIndex: _page,
+              bottomPadding: 18,
+              barItems: [
+                BarItem(
+                  filledIcon: Icons.comment_bank,
+                  outlinedIcon: Icons.comment_bank_outlined,
+                ),
+                BarItem(
+                    filledIcon: Icons.lock_clock,
+                    outlinedIcon: Icons.lock_clock_outlined),
+                BarItem(
+                    filledIcon: Icons.person_2,
+                    outlinedIcon: Icons.person_2_outlined),
+                BarItem(
+                    filledIcon: Icons.settings,
+                    outlinedIcon: Icons.settings_outlined),
+              ],
+            ),
+          ),
+        ),
       ),
       // bottomNavigationBar: BottomNavigationBar(
       //     backgroundColor: footerColor,
