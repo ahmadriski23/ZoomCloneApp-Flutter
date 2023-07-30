@@ -20,8 +20,8 @@ class _LoginScreenState extends State<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SlideInUp(
-            duration: Duration(milliseconds: 500),
-            child: Text(
+            duration: const Duration(milliseconds: 500),
+            child: const Text(
               'Start or join a meeting',
               style: TextStyle(
                 fontSize: 24,
@@ -32,11 +32,11 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 38.0),
             child: SlideInLeft(
-                duration: Duration(milliseconds: 2500),
+                duration: const Duration(milliseconds: 2500),
                 child: Image.asset('assets/images/onboarding.jpg')),
           ),
           ZoomIn(
-            duration: Duration(milliseconds: 4000),
+            duration: const Duration(milliseconds: 4000),
             child: CustomButton(
               text: 'Google Sign In',
               onPressed: () async {

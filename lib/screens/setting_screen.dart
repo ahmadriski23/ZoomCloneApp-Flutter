@@ -9,7 +9,7 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlipInY(
-      delay: Duration(milliseconds: 800),
+      delay: const Duration(milliseconds: 800),
       child: CustomButton(
           text: 'Log Out', onPressed: () => AuthMethods().signOut()),
     );

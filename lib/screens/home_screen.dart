@@ -25,9 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> pages = [
     MeetingScreen(),
-    HistoryMeetingScreen(),
-    Center(child: Text('Contact')),
-    SettingScreen(),
+    const HistoryMeetingScreen(),
+    const Center(child: Text('Contact')),
+    const SettingScreen(),
   ];
 
   @override
@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: backgroundColor,
-        title: Text('Meet & Chat'),
+        title: const Text('Meet & Chat'),
         centerTitle: true,
       ),
       body: pages[_page],
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
             bottom: Radius.circular(30),
           ),
           child: ZoomIn(
-            delay: Duration(seconds: 2),
+            delay: const Duration(seconds: 2),
             child: WaterDropNavBar(
               backgroundColor: footerColor,
               inactiveIconColor: Colors.grey,

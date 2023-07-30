@@ -32,7 +32,7 @@ class MeetingScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             FadeInLeft(
-              delay: Duration(milliseconds: 200),
+              delay: const Duration(milliseconds: 200),
               child: HomeMeetingButton(
                 onPressed: createNewMeeting,
                 icon: Icons.videocam,
@@ -40,7 +40,7 @@ class MeetingScreen extends StatelessWidget {
               ),
             ),
             ZoomIn(
-              delay: Duration(milliseconds: 550),
+              delay: const Duration(milliseconds: 550),
               child: HomeMeetingButton(
                 onPressed: () => joinMeeting(context),
                 icon: Icons.add_box_rounded,
@@ -48,7 +48,7 @@ class MeetingScreen extends StatelessWidget {
               ),
             ),
             FlipInX(
-              delay: Duration(milliseconds: 850),
+              delay: const Duration(milliseconds: 850),
               child: HomeMeetingButton(
                 onPressed: () {},
                 icon: Icons.calendar_today,
@@ -56,7 +56,7 @@ class MeetingScreen extends StatelessWidget {
               ),
             ),
             FadeInRight(
-              delay: Duration(milliseconds: 1150),
+              delay: const Duration(milliseconds: 1150),
               child: HomeMeetingButton(
                 onPressed: () {},
                 icon: Icons.arrow_upward_rounded,
@@ -68,8 +68,8 @@ class MeetingScreen extends StatelessWidget {
         Expanded(
           child: Center(
             child: FlipInY(
-              delay: Duration(milliseconds: 1800),
-              child: Text(
+              delay: const Duration(milliseconds: 1800),
+              child: const Text(
                 'Create/Join Meetings with just a click!',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,

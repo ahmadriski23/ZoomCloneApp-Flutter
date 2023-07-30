@@ -52,7 +52,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
         backgroundColor: backgroundColor,
         title: FadeIn(
           duration: Duration(milliseconds: 350),
-          child: Text(
+          child: const Text(
             'Join a Meeting',
             style: TextStyle(
               fontSize: 18,

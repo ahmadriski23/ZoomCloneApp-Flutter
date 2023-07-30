@@ -12,7 +12,7 @@ class HistoryMeetingScreen extends StatelessWidget {
       stream: FirestoreMethods().meetingHistory,
       builder: ((context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
@@ -21,13 +21,13 @@ class HistoryMeetingScreen extends StatelessWidget {
             itemCount: (snapshot.data! as dynamic).docs.length,
             itemBuilder: (context, index) => ListTile(
                 title: FlipInY(
-                  delay: Duration(milliseconds: 500),
+                  delay: const Duration(milliseconds: 500),
                   child: Text(
                     'Room Name : ${(snapshot.data! as dynamic).docs[index]['meetingName']}',
                   ),
                 ),
                 subtitle: ZoomIn(
-                  delay: Duration(milliseconds: 800),
+                  delay: const Duration(milliseconds: 800),
                   child: Text(
                       'Joined on ${DateFormat.yMMMMd().format((snapshot.data! as dynamic).docs[index]['createdAt'].toDate())}'),
                 )));
