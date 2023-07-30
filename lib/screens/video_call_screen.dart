@@ -51,7 +51,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
         elevation: 0,
         backgroundColor: backgroundColor,
         title: FadeIn(
-          duration: Duration(milliseconds: 350),
+          duration: const Duration(milliseconds: 350),
           child: const Text(
             'Join a Meeting',
             style: TextStyle(
@@ -66,13 +66,13 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
           SizedBox(
             height: 60,
             child: FlipInX(
-              duration: Duration(milliseconds: 850),
+              duration: const Duration(milliseconds: 850),
               child: TextField(
                 controller: meetingIdController,
                 maxLines: 1,
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     fillColor: secondaryBackgroundColor,
                     filled: true,
                     border: InputBorder.none,
@@ -89,13 +89,13 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
           SizedBox(
             height: 60,
             child: FlipInX(
-              duration: Duration(milliseconds: 1350),
+              duration: const Duration(milliseconds: 1350),
               child: TextField(
                 controller: nameController,
                 maxLines: 1,
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.text,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     fillColor: secondaryBackgroundColor,
                     filled: true,
                     border: InputBorder.none,
@@ -109,16 +109,16 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           InkWell(
             onTap: _joinMeeting,
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: FlipInX(
-                duration: Duration(milliseconds: 1750),
-                child: Text(
+                duration: const Duration(milliseconds: 1750),
+                child: const Text(
                   'Join',
                   style: TextStyle(
                     fontSize: 16,
@@ -127,11 +127,11 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           FlipInX(
-            duration: Duration(milliseconds: 2350),
+            duration: const Duration(milliseconds: 2350),
             child: MeetingOption(
               text: 'Mute Audio',
               isMute: isAudioMuted,
@@ -139,7 +139,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
             ),
           ),
           FlipInX(
-            duration: Duration(milliseconds: 2350),
+            duration: const Duration(milliseconds: 2350),
             child: MeetingOption(
               text: 'Turn off My Video',
               isMute: isVideoMuted,
